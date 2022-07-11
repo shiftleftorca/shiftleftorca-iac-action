@@ -22,13 +22,8 @@ jobs:
           output:
             "results/"
           console_output: "true"
-#       - uses: actions/upload-artifact@v3
-#         if: always()
-#         with:
-#           name: orca-results
-#           path: results/
-      - name: Upload SARIF file
+      - uses: actions/upload-artifact@v3
         if: always()
-        uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: hardcoded.sarif
+          name: orca-results
+          path: results/
