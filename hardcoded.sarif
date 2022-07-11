@@ -20,7 +20,7 @@
               "defaultConfiguration": {
                 "level": "error"
               },
-              "helpuri": {
+              "helpUri": {
                  "text": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html"
               }
             }
