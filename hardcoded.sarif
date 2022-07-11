@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Orca Shift-Left Security",
+          "version": "OrcaScanCli/testing",
+          "rules": [
+            {
+              "id": "e9f6297b-718f-4526-b822-1c9f6023b720-Terraform",
+              "name": "Admin User Enabled For Container Registry",
+              "shortDescription": {
+                "text": "Admin User Enabled For Container Registry"
+              },
+              "fullDescription": {
+                "text": "Admin user is enabled for Container Registry"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "e9f6297b-718f-4526-b822-1c9f6023b720-Terraform",
+          "ruleIndex": 0,
+          "kind": "fail",
+          "message": {
+            "text": "'admin_enabled' equal 'true'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "test/samples/positive2.tf"
+                },
+                "region": {
+                  "startLine": 11
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
