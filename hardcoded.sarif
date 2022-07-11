@@ -20,7 +20,9 @@
               "defaultConfiguration": {
                 "level": "error"
               },
-              "helpUri": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html"
+              "help": {
+                 "markdown": [issue help url](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)	
+              }
             }
           ]
         }
