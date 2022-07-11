@@ -11,9 +11,7 @@
             {
               "id": "e9f6297b-718f-4526-b822-1c9f6023b720-Terraform",
               "name": "Admin User Enabled For Container Registry",
-              "shortDescription": {
-                "text": "Admin User Enabled For Container Registry"
-              },
+
               "fullDescription": {
                 "text": "Category: the category of this control.<br />Admin user is enabled for Container Registry"
               },
