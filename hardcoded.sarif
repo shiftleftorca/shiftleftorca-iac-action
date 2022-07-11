@@ -21,7 +21,7 @@
                 "level": "error"
               },
               "help": {
-                 "text": "[more info](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)"
+                 "text": "Category: the category of this control.<br /> [more info](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)"
               }
             }
           ]
