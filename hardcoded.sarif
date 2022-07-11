@@ -21,7 +21,7 @@
                 "level": "error"
               },
               "help": {
-                 "text": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html"
+                 "text": "[more info](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)"
               }
             }
           ]
