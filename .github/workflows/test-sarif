@@ -1,0 +1,13 @@
+name: Test Sarif
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sarif_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: hardcoded.sarif
