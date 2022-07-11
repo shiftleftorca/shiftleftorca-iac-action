@@ -1,4 +1,4 @@
-name: Test Orca IaC action
+name: Test Kics action
 
 on:
   workflow_dispatch:
