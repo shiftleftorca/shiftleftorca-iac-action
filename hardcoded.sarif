@@ -15,13 +15,13 @@
                 "text": "Admin User Enabled For Container Registry"
               },
               "fullDescription": {
-                "text": "Admin user is enabled for Container Registry"
+                "text": "Category: the category of this control.<br />Admin user is enabled for Container Registry"
               },
               "defaultConfiguration": {
                 "level": "error"
               },
-              "help": {
-                 "text": "Category: the category of this control.<br /> [more info](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)"
+              "helpuri": {
+                 "text": "https://www.terraform.io/docs/providers/azurerm/r/container_registry.html"
               }
             }
           ]
