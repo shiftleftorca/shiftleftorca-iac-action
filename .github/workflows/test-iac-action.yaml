@@ -22,7 +22,7 @@ jobs:
           output:
             "results/"
           console_output: "true"
-          show_annotations: "false"
+          show_annotations: "true"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
