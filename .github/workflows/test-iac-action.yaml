@@ -17,6 +17,7 @@ jobs:
             "default"
           path:
             "test"
+          show_annotations: false
       - uses: actions/upload-artifact@v3
         if: always()
         with:
