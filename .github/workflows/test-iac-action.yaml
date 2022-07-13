@@ -17,14 +17,8 @@ jobs:
             "default"
           path:
             "test"
-          format:
-            "json"
-          output:
-            "results/"
-          console_output: "true"
-          show_annotations: "true"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: orca-results
-          path: results/
+          path: orca-results/
