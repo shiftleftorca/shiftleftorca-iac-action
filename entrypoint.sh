@@ -52,6 +52,7 @@ function prepare_json_to_file_flags() {
   if [[ "${INPUT_FORMAT}" == *"json"* ]]; then
     FORMATS_FOR_JSON="${INPUT_FORMAT}"
   else
+    echo "INPUT:${INPUT_FORMAT}:END"
     FORMATS_FOR_JSON="$INPUT_FORMAT,json"
   fi
 
