@@ -1,0 +1,29 @@
+name: Test Orca IaC action
+
+on:
+  workflow_dispatch:
+    inputs:
+      show_annotations:
+        type: boolean
+        default: true
+
+jobs:
+  iac_scan_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan IaC
+        uses: uses: orcasecurity/shiftleft-iac-action@v1
+        with:
+          api_token:
+            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key:
+            "default"
+          path:
+            "test"
+          show_annotations: ${{ github.event.inputs.show_annotations }} 
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: orca_results
+          path: orca_results/
