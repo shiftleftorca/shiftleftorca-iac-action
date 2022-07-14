@@ -1,4 +1,4 @@
-name: Test Orca IaC action
+name: Test Shift-Left IaC action
 
 on:
   workflow_dispatch:
