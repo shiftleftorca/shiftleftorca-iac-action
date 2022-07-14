@@ -2,6 +2,11 @@ name: Test Orca IaC action
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+      show_annotations:
+        type: boolean
+        default: true
 
 jobs:
   iac_scan_job:
@@ -17,7 +22,7 @@ jobs:
             "default"
           path:
             "test"
-          show_annotations: false
+          show_annotations: ${{ github.event.inputs.show_annotations }} 
       - uses: actions/upload-artifact@v3
         if: always()
         with:
