@@ -3,7 +3,6 @@ name: Test Orca IaC action
 on:
   workflow_dispatch:
     inputs:
-      name:
       show_annotations:
         type: boolean
         default: true
