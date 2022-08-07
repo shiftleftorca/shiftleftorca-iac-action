@@ -4,10 +4,10 @@ function extractAnnotations(results) {
     let annotations = [];
 
     function getDetail(controlResults, file) {
-        let details = controlResults.control["details"];
+        let details = `Details:\n${controlResults.control["details"]}`;
         let recommendation = file["expected_value"];
         if (recommendation) {
-            details = `${details}\nRecommendation: ${recommendation}`
+            details = `${details}\n\nRecommendation:\n${recommendation}`
         }
         return details
     }
