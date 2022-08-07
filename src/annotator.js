@@ -6,10 +6,8 @@ function extractAnnotations(results) {
     function getDetail(controlResults, file) {
         let details = controlResults.control["details"];
         let recommendation = file["expected_value"];
-        console.log("AYALAA: " + recommendation)
         if (recommendation) {
-            details.concat("\nRecommendation: ", recommendation);
-            console.log("AYALAA: " + details)
+            details = `${details}\nRecommendation: ${recommendation}`
         }
         return details
     }
