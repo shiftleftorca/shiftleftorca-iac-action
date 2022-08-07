@@ -9,19 +9,51 @@
           "version": "OrcaScanCli/testing",
           "rules": [
             {
-              "id": "e9f6297b-718f-4526-b822-1c9f6023b720-Terraform",
-              "name": "Admin User Enabled For Container Registry",
+              "id": "c02a2407-98ec-496b-9b36-dfdde5126c7c-Terraform",
+              "name": "SQL Server missing AAD Admin",
               "shortDescription": {
-                "text": "Admin User Enabled For Container Registry"
+                "text": "SQL Server missing AAD Admin"
               },
               "fullDescription": {
-                "text": "Admin user is enabled for Container Registry"
+                "text": "The Active Directory Administrator is not configured for a SQL server"
               },
               "defaultConfiguration": {
                 "level": "error"
               },
               "help": {
-                "text": "This is a recommendation\n[More Info](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)"
+                "text": "[More Info](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_active_directory_administrator)"
+              }
+            },
+            {
+              "id": "f33ecbcd-e67d-472f-ab2a-aee39054ddf0-Terraform",
+              "name": "SQL Server Auditing Disabled",
+              "shortDescription": {
+                "text": "SQL Server Auditing Disabled"
+              },
+              "fullDescription": {
+                "text": "Make sure that for SQL Servers, 'Auditing' is set to 'On'"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "[More Info](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server)"
+              }
+            },
+            {
+              "id": "2feaf70a-54b7-45e8-a913-13c04fd6fc36-Terraform",
+              "name": "SQL Server Predictable Active Directory Account Name",
+              "shortDescription": {
+                "text": "SQL Server Predictable Active Directory Account Name"
+              },
+              "fullDescription": {
+                "text": "Azure SQL Server must avoid using predictable Active Directory Administrator Account names, like 'Admin'"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "[More Info](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_active_directory_administrator)"
               }
             }
           ]
@@ -29,20 +61,60 @@
       },
       "results": [
         {
-          "ruleId": "e9f6297b-718f-4526-b822-1c9f6023b720-Terraform",
+          "ruleId": "c02a2407-98ec-496b-9b36-dfdde5126c7c-Terraform",
           "ruleIndex": 0,
           "kind": "fail",
           "message": {
-            "text": "'admin_enabled' equal 'true'"
+            "text": "A 'azurerm_sql_active_directory_administrator' is not defined for 'azurerm_sql_server[positive2]'\nRecommendation: A 'azurerm_sql_active_directory_administrator' is defined for 'azurerm_sql_server[positive2]'"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "test/samples/positive2.tf"
+                  "uri": "test/samples/positive1.tf"
                 },
                 "region": {
-                  "startLine": 11
+                  "startLine": 6
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "f33ecbcd-e67d-472f-ab2a-aee39054ddf0-Terraform",
+          "ruleIndex": 1,
+          "kind": "fail",
+          "message": {
+            "text": "'azurerm_sql_server.positive2.extended_auditing_policy' does not exist\nRecommendation: 'azurerm_sql_server.positive2.extended_auditing_policy' exists"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "test/samples/positive1.tf"
+                },
+                "region": {
+                  "startLine": 6
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "2feaf70a-54b7-45e8-a913-13c04fd6fc36-Terraform",
+          "ruleIndex": 2,
+          "kind": "fail",
+          "message": {
+            "text": "'azurerm_sql_active_directory_administrator[positive3].login' is predictable\nRecommendation: 'azurerm_sql_active_directory_administrator[positive3].login' should not be predictable'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "test/samples/positive1.tf"
+                },
+                "region": {
+                  "startLine": 18
                 }
               }
             }
